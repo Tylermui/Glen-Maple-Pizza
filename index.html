@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Glen Maple Pizza</title>
+        <link type='text/css' rel='stylesheet' href='css/styles.css' />
+        <link rel="icon" type="image/x-icon" href="images/mapleGlenLogo.png" />
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Montserrat:wght@100;400&family=Raleway&family=Rubik&family=Saira&family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+        <script src='js/app.js'></script>
+        <script src='data/sections.js'></script>
+        <script src='data/specials.js'></script>
+
+    </head>
+    <body ng-app='myApp' >
+        <header ng-include="'includes/nav.html'">
+        </header>
+
+        <main ng-view></main>
+
+        <footer  ng-include="'includes/footer.html'">
+        </footer>
+        
+        <script>
+        </script>
+    </body>
+</html>

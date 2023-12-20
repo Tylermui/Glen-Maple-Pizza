@@ -1,0 +1,79 @@
+<h1>Place Your Pizza Order</h1>
+<form name="orderForm" ng-submit="submitOrder()" novalidate>
+
+  <label for="name">Name</label>
+  <input type="text" name="name" ng-model="order.name" required> 
+  <div class='errorMsg' ng-show='orderForm.name.$touched && orderForm.name.$invalid'>Field Required</div><br>
+
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" ng-model="order.email" required>   
+  <div class='errorMsg' ng-show='orderForm.email.$touched && orderForm.email.$invalid'>Field Required</div><br>
+
+  <label for="phone">Phone Number</label>
+  <input type="tel" id="phone" name="phone" ng-model="order.phone" required>
+  <div class='errorMsg' ng-show='orderForm.phone.$touched && orderForm.phone.$invalid'>Field Required</div><br>
+
+  <label for="pizzaBase">Pizza Base</label>
+  <select id="pizzaBase" name="pizzaBase" ng-model="order.pizzaBase" required>
+    <option value="plain" selected>Plain</option>
+    <option value="glutenFree">Gluten Free</option>
+    <option value="white">White</option>
+  </select> 
+  <div class='errorMsg' ng-show='orderForm.pizzaBase.$touched && orderForm.pizzaBase.$invalid'>Field Required</div><br>
+  
+  <label>Toppings</label>
+  <div ng-repeat="topping in toppings">
+    <input type="checkbox" ng-model="order.toppings[topping]" id="{{topping}}" class="checkBox">
+    <label for="{{topping}}" class="toppingLabel">{{topping}}</label>
+  </div> <br>
+
+  <label for="notes" id="notes">Additional Notes</label>
+  <textarea id="notes" name="notes" ng-model="order.notes"></textarea> <br>
+
+  <label for="creditCard">Credit Card</label>
+  <input type="text" id="creditCard" name="creditCard" ng-model="order.creditCard" required>
+  <div class='errorMsg' ng-show='orderForm.creditCard.$touched && orderForm.creditCard.$invalid'>Field Required</div><br>
+
+
+  <label for="expDate">Expiration Date</label>
+  <input type="text" id="expDate" name="expDate" ng-model="order.expDate" required> 
+  <div class='errorMsg' ng-show='orderForm.expDate.$touched && orderForm.expDate.$invalid'>Field Required</div><br>
+
+
+  <label for="cvv">CVV</label>
+  <input type="text" id="cvv" name="cvv" ng-model="order.cvv" required>
+  <div class='errorMsg' ng-show='orderForm.cvv.$touched && orderForm.cvv.$invalid'>Field Required</div><br>
+
+
+  <button type="submit">Place Order</button>
+</form>
+
+
+<style>
+  .errorMsg{
+    display:inline-block;
+    font-size:.7em;
+    font-style:italic;
+    color:red;
+  }
+  label {
+    display: inline-block;
+    width: 200px;
+    padding: 10px;
+  }
+
+  input, select{
+    box-sizing: border-box;
+    width: 100px;
+  }
+  .checkBox {
+    width: 20px;
+  }
+  .toppingLabel{
+    width: 100px;
+  }
+  textarea{
+    width: 200px;
+    height: 100px;
+  }
+</style>

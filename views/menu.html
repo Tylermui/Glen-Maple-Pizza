@@ -1,0 +1,58 @@
+<h1>Menu</h1>
+<h2><a href="images/MGP_Menu.pdf">Click for a downloadable Menu</a></h2>
+<h2>
+    We cater Fruit Trays, Salad Trays, Hoagies/Wraps, Pastas, and Entees. <br>
+    Any Sandwich Can Be Made Into A Wrap. <br>
+    All Salads May Be Ordered Chopped. <br>
+    Homemade Soups for $6.95. <br>
+</h2>
+
+<div ng-repeat="section in sections" id="sectionButtons">
+    <button ng-click="getSection(section.section)">{{section.section}}</button>
+</div><br>
+
+<input type="text" ng-model="search" placeholder="Search"/> <br>
+
+<div ng-repeat="section in sections" id="wholeMenu" ng-show="show">
+    <span id="section">{{section.section}}</span>
+    <div ng-repeat="item in section.items | filter:search">
+        <div>
+          {{ item.name }} <span id="desc">{{item.desc}}</span> - ${{ item.price | number:2 }}
+        </div>
+    </div>
+</div>
+
+<div id="selectedMenu" ng-hide="show">
+    <span id="section">{{category}}</span>
+
+    <div ng-repeat="section in sections">
+        <div ng-if= "category == section.section">
+            <div ng-repeat="item in section.items | filter:search">
+                <div>
+                  {{ item.name }} <span id="desc">{{item.desc}}</span> - ${{ item.price | number:2 }}
+                </div>
+            </div>
+        </div>        
+    </div>
+
+
+   
+</div>
+
+<style>
+    #desc{
+        font-size: 13px;
+    }
+    #section{
+        font-weight: bolder;
+        text-decoration: underline;
+        font-size: 20px;
+    }
+    input{ 
+        border-radius: 10px;
+        margin: 1rem;        
+    }
+    #sectionButtons{
+        display: inline;
+    }
+</style>

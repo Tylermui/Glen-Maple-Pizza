@@ -1,0 +1,18 @@
+<h1>Maple Glen Pizza</h1>
+<h2>Montgomery County's Best Pizza!</h2>
+
+<div id="specials">
+    <h2>Specials and announcements</h2>
+    <div ng-repeat="special in specials | limitTo : 3 | orderBy: 'priority'  ">
+        <h3>{{special.name}} - {{special.desc}}</h3>
+    </div>
+</div>
+<img src="images/pizza.jpg" alt="" id="pizza">
+
+
+<style>
+    #pizza{
+        height: 500px;
+    }
+
+</style>
